@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Excerise 1 : Calculator</title>
+    <script src="/scripts/main.js" defer></script>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <p id="ans">: </p>
+    <form id="calc">
+        <div class="keypad">
+            <button type="button" onclick="build(this.innerText)">1</button>
+            <button type="button" onclick="build(this.innerText)">2</button>
+            <button type="button" onclick="build(this.innerText)">3</button>
+            <button type="button" onclick="build(this.innerText)">4</button>
+            <button type="button" onclick="build(this.innerText)">5</button>
+            <button type="button" onclick="build(this.innerText)">6</button>
+            <button type="button" onclick="build(this.innerText)">7</button>
+            <button type="button" onclick="build(this.innerText)">8</button>
+            <button type="button" onclick="build(this.innerText)">9</button>
+            <button type="button" onclick="build(this.innerText)">0</button>
+        </div>
+        <div class="operators">
+            <button type="button" onclick="window.clear()">c</button>
+            <button type="button" onclick="op(this.innerText)">+</button>
+            <button type="button" onclick="op(this.innerText)">-</button>
+            <button type="button" onclick="op(this.innerText)">*</button>
+            <button type="button" onclick="op(this.innerText)">/</button>
+            <button type="button" onclick="solve()">=</button>
+        </div>
+    </form>
+</body>
+</html>

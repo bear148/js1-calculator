@@ -1,0 +1,35 @@
+body {
+    width: fit-content;
+}
+
+button {
+    color: white;
+    background-color: black;
+    width: 30px;
+    margin: 2px;
+}
+
+#calc {
+    display: flex;
+    border: 1px solid black;
+    width: fit-content;
+}
+
+.operators {
+    display: flex;
+    flex-flow: column;
+}
+
+.keypad {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#ans {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
