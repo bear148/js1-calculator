@@ -4,9 +4,10 @@ body {
 
 button {
     color: white;
+    font-size: 2rem;
     background-color: black;
-    width: 30px;
-    margin: 2px;
+    width: 60px;
+    margin: 4px;
 }
 
 #calc {
@@ -32,4 +33,5 @@ button {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    font-size: 2rem;
 }
