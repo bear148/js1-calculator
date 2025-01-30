@@ -5,14 +5,14 @@ let operation = "";
 function clear() {
     numbers = "";
     operation = "";
-    document.getElementById("ans").innerText = ": ";
+    document.getElementById("ans").innerHTML = "&nbsp";
 }
 
 // building string of numbers.
 // everytime the function is called the number pressed is added onto the string.
 function build(a) {
     numbers += a;
-    document.getElementById("ans").innerText = ": " + numbers;
+    document.getElementById("ans").innerText = "" + numbers;
 }
 
 // adds the operation to the equation.
@@ -21,7 +21,7 @@ function op(o) {
     operation = o;
     if(numbers != "") {
         numbers += o;
-        document.getElementById("ans").innerText = ": " + numbers;
+        document.getElementById("ans").innerText = "" + numbers;
     } else {
         alert("Invalid Equation! No numbers selected!");
         return;
@@ -47,6 +47,7 @@ function solve() {
     let n_s = numbers.split(operation);
     let answer;
 
+    // Checking if the same operation has been pressed multiple times
     if (n_s[1] == "") {
         alert("Invalid Equation! Too many operations!");
         return;
@@ -63,21 +64,26 @@ function solve() {
     // the answer is assigned to the answer variable defined above.
     switch(operation) {
         case "+":
-            answer = parseInt(n_s[0]) + parseInt(n_s[1]);
+            answer = parseFloat(n_s[0]) + parseFloat(n_s[1]);
             break;
         case "-":
-            answer = parseInt(n_s[0]) - parseInt(n_s[1]);
+            answer = parseFloat(n_s[0]) - parseFloat(n_s[1]);
             break;
         case "*":
-            answer = parseInt(n_s[0]) * parseInt(n_s[1]);
+            answer = parseFloat(n_s[0]) * parseFloat(n_s[1]);
             break;
         case "/":
-            answer = parseInt(n_s[0]) / parseInt(n_s[1]);
+            answer = parseFloat(n_s[0]) / parseFloat(n_s[1]);
             break;
     }
 
     // finally we set the answer text on the website to the calculated answer. We do not need to reset the answer variable because it is reset everytime the function is ran.
-    document.getElementById("ans").innerText = `: ${n_s[0]}${operation}${n_s[1]} = ${answer}`;
+    // this is a last resort check to see if there are any errors regarding the final answer not being a number. if the answer is not a number, SYNTAX ERROR is outputted to the calculator screen.
+    if (isNaN(answer)) {
+        document.getElementById("ans").innerText = `SYNTAX ERROR`;
+    } else {
+        document.getElementById("ans").innerText = `${n_s[0]}${operation}${n_s[1]}=${answer}`;
+    }
 
     // these reset the numbers and operation for the next calculation
     numbers = "";
